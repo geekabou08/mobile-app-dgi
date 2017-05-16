@@ -1,0 +1,39 @@
+<ion-view view-title="Liste de classe">
+  <ion-content>
+    <div class="card">
+      <div class="item item-divider text-center">
+        <form name="form">
+          <label class=" item-select item-input " name="classe">
+          <span> Classe:</span>
+            <select ng-model="classe" required>
+              <option value="dic1tr">DIC1 TR</option>
+              <option value="dic2tr">DIC2 TR</option>
+              <option value="dic3tr">DIC3 TR</option>
+              <option value="dic3info">DIC3 INFORMATIQUE</option>
+            </select>
+          </label>
+          <div class="spacer" style="width: 300px; height: 10px;"></div>
+          <label class=" item-select item-input " name="cours">
+            <span> Cours:</span>
+            <select ng-model="module" required>
+              <option ng-repeat="mod in cours" value="{{mod.nom}}">{{mod.nom}}</option>
+            </select>
+          </label>
+        </form>
+        <div class="spacer" style="width: 300px; height: 10px;"></div>
+        <a class="button button-energized button-small" ng-disabled="form.$invalid" ng-click="validerClasse(classe)"> valider</a>
+      </div>
+      <div class="item item-text-wrap">
+        <ion-list ng-hide="!listeClasse">
+          <ion-item ng-repeat="etudiant in listeClasse" >
+            {{etudiant.nom}}&nbsp;{{etudiant.prenom}}
+            <a class="button button-assertive button-small col col-25 col-offset-75" ng-hide="this[etudiant.login].name==etudiant.login" ng-click="absence(etudiant,module)">absent(e)</a>
+          </ion-item>
+        </ion-list>
+      </div>
+      <div class="item item-divider">
+        <a class="button button-block button-assertive" ng-hide="!listeClasse" ng-click="finAbsence()"> Finir</a>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>

@@ -1,0 +1,33 @@
+<ion-header-bar align-title="left" class="bar-dark">
+  <h1 class="title">DGI Mobile App</h1>
+  <div class="buttons">
+    <a href="#/about" ><button class="button button-dark"> <i class="ionicon ion-information-circled"> A propos </i></button></a>
+  </div>
+</ion-header-bar>
+
+<ion-view>
+  <ion-content padding="true">
+    <div class="spacer" style="width: 300px; height: 40px;"></div>
+    <h1 style="color:darkslategrey;font-weight:600;text-align:center;" class=" ">Authentification</h1>
+    <div class="spacer" style="width: 300px; height: 26px;"></div>
+
+    <form class="list" name="form" novalidate>
+      <label class="item item-input "  name="Login">
+        <span class="input-label">Login</span>
+        <input type="text" placeholder="votre login" name="login" ng-model="user.login" required>
+      </label>
+      <label class="item item-input " name="password">
+        <span class="input-label">Mot de passe</span>
+        <input type="password" placeholder="votre mot de passe" name="password" ng-model="user.password" required>
+      </label>
+      <label class="item item-input item-select" name="statut">
+        <span >Statut</span>
+        <select ng-model="user.statut" required>
+          <option ng-selected="true"> Votre statut</option>
+          <option value="etudiant" >Etudiant</option>
+          <option value="professeur" >Professeur</option>
+        </select>
+      </label>
+    </form>
+    <a style="border-radius:7px 7px 7px 7px;" class=" button button-dark  button-block icon-left ion-log-in "ng-disabled="form.$invalid" ng-click="connexion(user)">Connexion</a>
+</ion-view>

@@ -1,0 +1,54 @@
+<ion-view view-title="Accueil">
+  <div class="bar bar-subheader bar-dark">
+    <h2 class="title">Bienvenue</h2>
+  </div>
+  <ion-content class="">
+    <div class="row positive">
+      <div class="col col-50 idpro-button-full">
+        <br/>
+      </div>
+
+      <div class="col col-50 idpro-button-full">
+        <br/><br/>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col ">
+        <a href="#/professeur/news" class="button button-large button-full button-calm">
+          <i class="ion-information dashboard-div-icon"></i>
+          <hr>
+          Informations
+        </a>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <a href="#/professeur/absence" class="button button-large button-full button-balanced">
+          <i class="ion-clipboard dashboard-div-icon"></i>
+          <hr>
+          Liste de classe
+        </a>
+      </div>
+      </div>
+    <div class="row">
+      <div class="col ">
+        <a href="#/professeur/cahierdetexte" class="button button-large button-full button-assertive">
+          <i class="ion-compose dashboard-div-icon"></i>
+          <hr>
+          Cahier de texte
+        </a>
+      </div>
+    </div>
+    <div class="row" ng-hide="!resp_peda">
+      <div class="col">
+        <a href="#/professeur/edt" class="button button-large button-full button-energized">
+          <i class="ion-clock dashboard-div-icon"></i>
+          <hr>
+          Emploi du temps
+        </a>
+      </div>
+    </div>
+
+  </ion-content>
+</ion-view>

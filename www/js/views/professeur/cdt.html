@@ -1,0 +1,42 @@
+<ion-view title="Cahier de texte">
+  <ion-content>
+    <div class="card">
+      <div class="item item-divider">
+        <form name="form">
+          <label class=" item-select item-input " name="cours">
+            <span> Cours:</span>
+            <select ng-model="id" required>
+              <option ng-repeat="mod in cours" value="{{mod.id}}">{{mod.nom}}</option>
+            </select>
+          </label>
+        </form>
+        <div class="spacer" style="width: 300px; height: 10px;"></div>
+        <div class="col col-33 col-offset-33">
+          <a class="button button-energized button-small" ng-disabled="form.$invalid" ng-click="envoyer(id)"> AFFICHER</a>
+        </div>
+      </div>
+
+      <div class="item item-text-wrap" ng-show="data">
+        <div class="list">
+          <div class="item item-divider">
+             A VALIDER
+          </div>
+          <a class="item" href="#/professeur/cahierdetexte/activite/{{activite.id}}" ng-repeat="activite in data"  ng-show="activite.valide==false">
+           <b> HORAIRE: </b> {{activite.horaire}} <br>
+            <b> Activité: </b> ID: {{activite.id}} <br>
+          </a>
+        </div>
+        <div class="list">
+          <div class="item item-divider">
+            DEJA VALIDEES
+          </div>
+          <a class="item" href="#/professeur/cahierdetexte/activite/{{activite.id}}" ng-repeat="activite in data" ng-show="activite.valide==true">
+            <b> HORAIRE: </b> {{activite.horaire}} <br>
+            <b> Activité: </b> ID: {{activite.id}} <br>
+          </a>
+        </div>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>
+

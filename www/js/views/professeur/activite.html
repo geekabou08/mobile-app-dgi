@@ -1,0 +1,18 @@
+<ion-view title="Activité">
+  <ion-content>
+    <div class="card">
+    <div class="item ">
+      <h2>Classe: {{classe.nom}} </h2>
+      <h2>Horaire: {{activite.horaire}}</h2>
+      <hr>
+      <p>Date : {{date.day}} {{date.month}} {{date.year}}</p>
+    </div>
+    <div class="item item-body">
+      <p>
+        {{activite.activite}}
+      </p>
+    </div>
+      <a ng-click="validerActivite(activite.id)" class="button button-block button-balanced" ng-hide="activite.valide==true">Valider</a>
+    </div>
+  </ion-content>
+</ion-view>

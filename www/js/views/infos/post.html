@@ -1,0 +1,58 @@
+<ion-view view-title="Informations">
+  <ion-content>
+    <div class="card">
+      <div class="item item-divider text-center">
+        Publier une information
+      </div>
+      <div class="item item-text-wrap">
+        <div class="list">
+          <label class="item item-input item-floating-label">
+            <input type="text" ng-model="pub.titre" placeholder="Titre">
+          </label>
+          <label class="item item-input item-stacked-label item-floating-label">
+            <textarea placeholder="Publication" rows="5" ng-model="pub.publication" ></textarea>
+          </label>
+          <label class="item item-input item-select" ng-show="userlogged.responsable==true">
+            <div class="input-label" >
+              Portée
+            </div>
+            <select ng-model="pub.portee">
+              <option value="public">Public</option>
+              <option  value="classe">Classe</option>
+            </select>
+          </label>
+        </div>
+      </div>
+      <div class="item item-divider text-center">
+        <a href="" class="button button-small button-calm" ng-click="poster(pub)"><i class="ionicon ion-compose"></i>&nbsp;publier</a>
+
+       </div>
+     </div>
+     <div class="card">
+       <div class="item item-divider text-center" >
+         <div class="row">
+             Publications
+         </div>
+       </div>
+       <div class="item item-text-wrap">
+           <label class="item item-input">
+             <i class="icon ion-search placeholder-icon"></i>
+             <input type="text" ng-model="recherche" placeholder="Search">
+           </label>
+         <div class="list" ng-repeat="post in posts|filter:recherche">
+           <a class="item item-avatar" ng-show="(post.portee=='public'|| post.portee==userlogged.classe)&&user.statut=='etudiant'" href="#/etudiant/post/{{post.id}}">
+             <img src='img/avatar.gif'>
+             <h2>{{post.prenom_publicateur}}&nbsp;{{post.nom_publicateur}}</h2>
+             <h4><i>titre: </i>{{post.titre}}</h4>
+           </a>
+           <a class="item item-avatar" ng-show="user.statut=='professeur'&& post.portee=='public'" href="#/professeur/post/{{post.id}}">
+             <img src='img/avatar.gif'>
+             <h2>{{post.prenom_publicateur}}&nbsp;{{post.nom_publicateur}}</h2>
+             <h4><i>titre: </i>{{post.titre}}</h4>
+           </a>
+         </div>
+       </div>
+     </div>
+   </ion-content>
+ </ion-view>
+
